@@ -18,12 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Listening in high fidelity
-email: hifi@robarnold.io
+title: Technical notes from Rob Arnold
+email: rob@robarnold.io
 description: >- # this means to ignore newlines until "baseurl:"
-  Technical notes from Rob Arnold on the pursuit of better listening experiences.
+  Technical notes from Rob Arnold
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://hifi.robarnold.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.robarnold.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  robarnoldio
 timezone: America/Chicago
