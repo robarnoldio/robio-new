@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://www.robarnold.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.robarnold.io/" rel="alternate" type="text/html" /><updated>2026-02-17T12:23:57-06:00</updated><id>https://www.robarnold.io/feed.xml</id><title type="html">Technical notes from Rob Arnold</title><subtitle>Technical notes from Rob Arnold</subtitle><entry><title type="html">Back to Back to Jekyll: now with Github Actions</title><link href="https://www.robarnold.io/useful/2026/02/17/back-to-back-to-jekyll.html" rel="alternate" type="text/html" title="Back to Back to Jekyll: now with Github Actions" /><published>2026-02-17T12:04:30-06:00</published><updated>2026-02-17T12:04:30-06:00</updated><id>https://www.robarnold.io/useful/2026/02/17/back-to-back-to-jekyll</id><content type="html" xml:base="https://www.robarnold.io/useful/2026/02/17/back-to-back-to-jekyll.html"><![CDATA[<h2 id="what-the-heck">what the heck</h2>
+
+<p>I built a new blog recently, and so I determined I needed my old blog to be updated to work like the new one.</p>
+
+<p>The new deal (and now this one):</p>
+<ul>
+  <li>uses Jekyll on Github Pages</li>
+  <li>uses Github actions to deploy the site after I update the repo</li>
+  <li>edited with VS Code as a bunch of markdown files</li>
+</ul>
+
+<p>Let’s see how it goes…</p>
+
+<blockquote>
+  <p>Updated on 2026-02-17</p>
+</blockquote>]]></content><author><name>Rob Arnold</name></author><category term="useful" /><category term="meta" /><category term="blog" /><summary type="html"><![CDATA[Updating the thing is underappreciated...]]></summary></entry><entry><title type="html">Improve your home network security for free</title><link href="https://www.robarnold.io/free/2023/12/01/improve-your-home-network-security-for-free.html" rel="alternate" type="text/html" title="Improve your home network security for free" /><published>2023-12-01T13:00:00-06:00</published><updated>2023-12-01T13:00:00-06:00</updated><id>https://www.robarnold.io/free/2023/12/01/improve-your-home-network-security-for-free</id><content type="html" xml:base="https://www.robarnold.io/free/2023/12/01/improve-your-home-network-security-for-free.html"><![CDATA[<p>Security is a problem that we all face. At work, there may be trained professionals leading the efforts to reduce harm and keep everything trustworthy. But what about on your home network? Couldn’t we all use a little professional help with that? Read on for steps you can take today that will cost you zero.</p>
+
+<h2 id="one-service-three-levels-of-difficulty">One service, three levels of difficulty</h2>
+
+<p>Today we’ll cover how to use free services from Cloudflare to manage the risks to your home network and the devices on it. Cloudflare is amazing because they really care about creating a more secure Internet–so much so that they will let you consume some of their best services at no cost.</p>
+
+<h3 id="level-1-secure-domain-name-service-with-1111-or-2-or-3">Level 1: secure Domain Name Service with 1.1.1.1 (or .2 or .3)</h3>
+
+<p>Cloudflare operates a set of public DNS servers that are very fast and give you choices about how to deal with malicious sites and adult content sites. Their brand name for these services is 1.1.1.1, and you can read more about how it works.</p>
+
+<p>What Domain Name Service (DNS) does is quite fundamental to the Internet operating correctly. When you use a name, like www.robarnold.io, the DNS resolves that to an address (or addresses) that are registered with that name to provide some useful service, like a website or email.</p>
+
+<p>How Cloudflare works to keep your network more secure is actually really simple and powerful: any name that you ask it to resolve which is identified as serving malicious content, Cloudflare will return an address of 0.0.0.0 for that request. So you are prevented from visiting any compromised sites or malicious services, and it’s free and fast to set up.</p>
+
+<p>To use this protection, all you need to do is configure your router to use 1.1.1.2 and 1.0.0.2 as the DNS servers that it forwards requests to. In your config, this may be labeled several ways, but you’ll recognize that there will already be an IP address in the configuration, probably provided by your Internet Provider.</p>
+
+<p>Once you’re done setting that up, it’s easy to test with this address that points at a site which is safe, but categorized as malware for testing: <a href="https://malware.testcategory.com/">https://malware.testcategory.com/</a>.</p>
+
+<p>If you would also like to protect people using your network from adult content, that is also simple and free. Configure your router to use 1.1.1.3 and 1.0.0.3 as the DNS servers to get protection from malware and adult content.</p>
+
+<p>Once you’re done setting that up, it’s easy to test with this address that points at a site which is safe, but categorized as adult for testing: <a href="https://nudity.testcategory.com/">https://nudity.testcategory.com/</a>.</p>
+
+<p>You can read quite a bit more about this in Cloudflare’s <a href="https://developers.cloudflare.com/1.1.1.1/setup/">documentation</a>, but this is the quickest way to achieve malware protection for every device using your home network.</p>
+
+<p>Level 1 is amazing, and so quick to set up. But there are more free services that will help extend these protections to situations where your device is using someone else’s network. It would be great to have that protection on any network. And you can, for no cost, with the Warp client from Cloudflare.</p>
+
+<h3 id="level-2-warp-client">Level 2: Warp client</h3>
+
+<p>Besides making sure your devices don’t access malicious sites, the Warp client offers you the protection of a Virtual Private Network (VPN) as well. This VPN is not targeted at keeping you anonymous–it is there to ensure your traffic to the Internet is not modified by someone who carries that traffic (like a coffee shop network that has been compromised).</p>
+
+<p><em>As a side note, most of the traffic on the web is now encrypted, so this protection may seem redundant. But your devices are making a lot of connections all the time that aren’t web traffic, and this approach gives all that traffic a trustworthy connection to the Internet too.</em></p>
+
+<p>Installing the Warp client is easy. Go to <a href="https://1.1.1.1/">this page</a> and find the appropriate link for your devices, then install. You can read quite a bit more about how it protects you <a href="https://developers.cloudflare.com/warp-client/">in the documentation</a>, but you can also just turn it on and forget it.</p>
+
+<p>Two caveats about using this approach:</p>
+
+<ul>
+  <li>In my testing, running this client will drain your battery faster. That’s probably a decent tradeoff for most of us. If you have an older device or are currently battery-challenged, you may want to skip installing this.</li>
+  <li>A few services are not compatible. One that I ran into in testing was trying to play Apple Music through Sonos. Luckily, it’s easy to toggle the Warp client off in situations where it breaks something you need to work.</li>
+</ul>
+
+<h3 id="level-3-warp-client-with-a-free-cloudflare-account-and-teams">Level 3: Warp client with a free Cloudflare account and teams</h3>
+
+<p>Let’s say you crave control over the precise categories of sites to block. Or that you need a log of actions taken to protect your network. Or that you need to fine tune the protection of the <a href="https://blog.cloudflare.com/warp-for-desktop/">Warp client</a> based on who’s using it. You can do all those things by signing up (for free) for a Cloudflare account.</p>
+
+<p>Cloudflare generously provides almost all the features their enterprise customers pay for to everyone, for no cost. To access this, you do need to <a href="https://dash.cloudflare.com/sign-up">register as a customer</a>.</p>
+
+<p><img src="/i/cloudflarepricing.png" alt="screenshot" /></p>
+
+<p>When you do this, you can use <em>a lot more features</em> than most home users will have a need for. To help you imagine that, here’s a short list of things I do with my account:</p>
+
+<ul>
+  <li>I exempt certain application traffic from being sent through the Warp client, which helps me avoid the compatibility problems in Level 2.</li>
+  <li>I look at logs to more fully understand the policy actions Cloudflare can take on traffic.</li>
+  <li>I use a content filtering category that was developed to make network access school-friendly.</li>
+  <li>I exempt my work machine from some protections my home devices get, because it comes with some robust protections that may conflict.</li>
+</ul>
+
+<p>I (a giant nerd) particularly enjoy having enterprise-grade protection for my home network. But you may choose differently, and the good news is you have several options to pick from, all free.</p>]]></content><author><name></name></author><category term="free" /><summary type="html"><![CDATA[Security is a problem that we all face. At work, there may be trained professionals leading the efforts to reduce harm and keep everything trustworthy. But what about on your home network? Couldn’t we all use a little professional help with that? Read on for steps you can take today that will cost you zero.]]></summary></entry><entry><title type="html">Get you a free M365 developer tenant</title><link href="https://www.robarnold.io/free/2023/11/29/M365-developer-tenant.html" rel="alternate" type="text/html" title="Get you a free M365 developer tenant" /><published>2023-11-29T13:00:00-06:00</published><updated>2023-11-29T13:00:00-06:00</updated><id>https://www.robarnold.io/free/2023/11/29/M365-developer-tenant</id><content type="html" xml:base="https://www.robarnold.io/free/2023/11/29/M365-developer-tenant.html"><![CDATA[<p>Bottom line up front: you probably could use this <a href="https://learn.microsoft.com/en-us/entra/verified-id/how-to-create-a-free-developer-account">free service</a>.</p>
+
+<p>Here’s the <a href="https://developer.microsoft.com/en-us/microsoft-365/dev-program">signup page</a>.</p>
+
+<p>What could you do with it? Here are some ideas based on how I use mine.</p>
+
+<ul>
+  <li>Get familiarity with Exchange Online Protection. The policies are rather complex, so getting a sandbox where you can screw them up without irritating your users has a lot of value.</li>
+  <li>See what is in the Defender for Identity SKU.</li>
+  <li>Feel the awesome power of wielding Global Admin.</li>
+  <li>Get to know the latest Office apps.</li>
+  <li>Try out the M365 features your admin may have disabled.</li>
+  <li>Play with Intune and Autopilot.</li>
+</ul>]]></content><author><name></name></author><category term="free" /><summary type="html"><![CDATA[Bottom line up front: you probably could use this free service.]]></summary></entry><entry><title type="html">Back to Jekyll</title><link href="https://www.robarnold.io/useful/2023/11/29/back-to-jekyll.html" rel="alternate" type="text/html" title="Back to Jekyll" /><published>2023-11-29T12:00:00-06:00</published><updated>2023-11-29T12:00:00-06:00</updated><id>https://www.robarnold.io/useful/2023/11/29/back-to-jekyll</id><content type="html" xml:base="https://www.robarnold.io/useful/2023/11/29/back-to-jekyll.html"><![CDATA[<h2 id="lets-get-started-back-up">Let’s get started back up</h2>
+
+<p>Just a post to make sure my blogging workflow is still functioning. I want to post a bunch of stuff I’ve been learning about, but I need to blow the dust out of the Jekyll machine…</p>
+
+<p>Stay tuned for some updates.</p>
+
+<h2 id="kind-of-a-workflow">Kind of a workflow</h2>
+
+<ul>
+  <li>open the folder for the site in VS Code</li>
+  <li>create a new file under _posts</li>
+  <li>copy some front matter from one of the other posts and tweak the dates (I wish this could be easier)</li>
+  <li>barf out some content in Markdown format</li>
+  <li>save the file locally</li>
+  <li>fix stuff that the markdown lint complains about</li>
+  <li>probably save it again</li>
+  <li>go to source control and commit (with a spicy message)</li>
+  <li>save all if necessary</li>
+  <li>smash the sync changes button</li>
+  <li>push commits with the little up arrow in the lower left</li>
+</ul>
+
+<h2 id="gotchas">gotchas</h2>
+
+<ul>
+  <li>file has to be .md extension</li>
+  <li>timestamp in the front matter is relevant for visibility of the post</li>
+</ul>]]></content><author><name></name></author><category term="useful" /><summary type="html"><![CDATA[Let’s get started back up]]></summary></entry><entry><title type="html">Manage your identity theft risk</title><link href="https://www.robarnold.io/useful/2021/08/19/manage-your-identity-theft-risk.html" rel="alternate" type="text/html" title="Manage your identity theft risk" /><published>2021-08-19T17:00:00-05:00</published><updated>2021-08-19T17:00:00-05:00</updated><id>https://www.robarnold.io/useful/2021/08/19/manage-your-identity-theft-risk</id><content type="html" xml:base="https://www.robarnold.io/useful/2021/08/19/manage-your-identity-theft-risk.html"><![CDATA[<h2 id="managing-your-identity-theft-risk-placing-a-credit-freeze">Managing your identity theft risk: placing a credit freeze</h2>
+
+<p><strong>Why:</strong> This week, T-Mobile customer data was released publicly. Next week it will be someone else’s customer data. Taking control of your credit bureau files stops the misuse of this information to open accounts in your name (referred to as identity theft).</p>
+
+<p><strong>What:</strong> Placing a “freeze” at all three credit bureaus stops accounts from being opened in your name without a PIN that you provide. There’s no cost to you (by law as of September 2018), and it does not affect your credit score. Unlike credit monitoring, this will prevent, rather than just alert you to, attempted fraudulent use of your identity.</p>
+
+<p><strong>How:</strong> Here’s my three step process, and it should take about 30 minutes to complete.</p>
+
+<ol>
+  <li>
+    <p>Plan where you will store and protect your credit freeze PIN and records. You could print them and store in a safe, or use an online password safe if you prefer. When you want to apply for credit in the future, you will need to access this PIN to do it, so plan ahead.</p>
+  </li>
+  <li>
+    <p>For each of the three credit bureaus, use their online tool to request a credit freeze. Equifax and Transunion require you to create an account. I recommend you use a personal email address from a trusted provider such as Gmail or Outlook.com for this. You’ll provide your SSN and some amount of address history.</p>
+  </li>
+  <li>
+    <p>Double check that you have the necessary passwords and PINs recorded. You will need them when you want to apply for credit in the future - unfreezing the credit report will require this PIN. Mortgage applications, new credit cards, car loans, and even job applications can require a credit check, which won’t be permitted by the bureaus unless you provide your PIN.</p>
+  </li>
+</ol>
+
+<h3 id="the-links-youll-need">The links you’ll need</h3>
+
+<ul>
+  <li><a href="https://www.transunion.com/credit-freeze">TransUnion</a> (exactly 6 digits, you pick)</li>
+  <li><a href="https://www.experian.com/freeze/center.html">Experian</a> (5-10 digits, you can pick)</li>
+  <li><a href="https://www.equifax.com/personal/credit-report-services/">Equifax</a> (no pin, lift the freeze by logging in, calling, or writing)</li>
+</ul>
+
+<p>You can also enroll by phone:</p>
+
+<ul>
+  <li>TransUnion: 1-888-909-8872</li>
+  <li>Experian: 1-888-397-3742</li>
+  <li>Equifax: 1-800-349-9960</li>
+</ul>
+
+<p>Should you also sign up for the free credit monitoring that T-Mobile or other companies provide? I don’t recommend it. It’s a marketing opportunity for the service providers, and not much else.</p>]]></content><author><name></name></author><category term="useful" /><summary type="html"><![CDATA[Managing your identity theft risk: placing a credit freeze]]></summary></entry><entry><title type="html">Conclusions vs. Observations</title><link href="https://www.robarnold.io/it/troubleshooting/2020/01/27/conclusions-vs-observations.html" rel="alternate" type="text/html" title="Conclusions vs. Observations" /><published>2020-01-27T16:00:00-06:00</published><updated>2020-01-27T16:00:00-06:00</updated><id>https://www.robarnold.io/it/troubleshooting/2020/01/27/conclusions-vs-observations</id><content type="html" xml:base="https://www.robarnold.io/it/troubleshooting/2020/01/27/conclusions-vs-observations.html"><![CDATA[<p>This is the first post in a short series about troubleshooting–the skill everyone in tech
+is expected to have, but no one gets trained to do.</p>
+
+<h2 id="observations-vs-conclusions">Observations vs. Conclusions</h2>
+
+<p><strong>Bottom line up front:</strong> less experienced troubleshooters often hinder their progress toward a solution by treating conclusions like observations.</p>
+
+<p>What’s the real difference? An observation should be repeatable, and relatively resistant to differences
+due to the observer. You can and should use both while troubleshooting, but be acutely aware when you are making a conclusion.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">conclusion</th>
+      <th style="text-align: left">observation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">All the servers are down.</td>
+      <td style="text-align: left">I can’t ping host <em>foo</em> from outside the network.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">The Internet connection failed.</td>
+      <td style="text-align: left">DNS resolution fails for three hostnames I tested from my machine.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">The web server crashed.</td>
+      <td style="text-align: left">Host <em>foo</em> is not accepting connections on port 80 or 443.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You may be asking yourself right now “why does this matter? Aren’t we supposed to conclude what’s wrong in troubleshooting?”</p>
+
+<p>In the end, yes. But each of us has something known as <a href="https://youarenotsosmart.com/2010/06/23/confirmation-bias/"><strong>confirmation bias</strong></a> that affects how we gather information and use it to update our beliefs about the world. It’s a powerful effect, and no one is immune. The best any of us can do is be aware of the bias and try to act in ways that minimize the impact. This is one technique for that.</p>
+
+<p><strong>Confirmation bias</strong> is the human tendency to give information that confirms our beliefs about the world more significance than information that disconfirms those beliefs.</p>
+
+<p>Oftentimes it’s helpful to explicitly qualify your assumptions in the statement of an observation:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ok observation</th>
+      <th style="text-align: left">detailed observation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">I can’t ping the outside interface.</td>
+      <td style="text-align: left">I can’t ping the outside interface by IP from my workstation iside the firewall.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">I can’t ping the web server.</td>
+      <td style="text-align: left">I can’t ping host <em>foo</em> by hostname or by IP address.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">The engineering subnet is down.</td>
+      <td style="text-align: left">I can see packets getting forwarded to the engineering subnet, but reply packets are getting dropped.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Recommendation:</strong> if you are working an issue, or part of a team that is working an issue, be alert to
+your tendency to state conclusions as facts, adn intentionally recast your statements as observations.
+Doing so will lead to quicker issue resolution and avoid testing that retraces steps already taken.
+Resist the temptation to explain, and just diligently observe. The explanation will emerge from a set of
+well-stated observations.</p>
+
+<h2 id="a-true-story">A true story</h2>
+
+<p>This story happened to me, but I’m changing some names and details to protect privacy.</p>
+
+<p>While enjoying a nice dinner at home, my phone rang. The senior leader over applications
+got right to the point: “all the servers are down.” I asked if we had a bridge open for
+the team that would be working the issue (as specified in our incident management procedure.)
+Apparently no one had read that procedure recently, so I asked if we could hang up, and get the
+Network Operations Center (NOC) to send us all details of the “war room” bridge after they open it.</p>
+
+<p>Within a few minutes, we had the response team (still pulling their hair out) on the conference bridge,
+and NOC staff riding along to assist. The team consisted of pretty much the CIO’s direct reports: head of applications, head of infrastructure, head of communications<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, head of support services, and head
+of security (that’s me). It wasn’t too clear at first that we were not under attack, so I got two of my
+senior analysts on a separate bridge to gather data, and answer questions with facts wherever possible.</p>
+
+<p>Dear reader, you may be asking yourself right now why staff were not handling this incident. Apparently
+the genesis of the incident was a call about “all” the business apps not working, which got escalated to
+the head of apps. What testing that the app team performed is what resulted in the “all the servers are down” proclamation.</p>
+
+<p>It didn’t take long to disconfirm the conclusion–by carefully choosing vantage points in different
+networks to observe from, my team found that while multiple servers were “down” or not responding,
+at least some servers were “up.” This was the beginning of narrowing the possible solution space and
+converging on a cause for the issue.</p>
+
+<p>By observing that reachable hosts had a network in common, we formed a hypothesis that a router was not
+forwarding traffic to or from at least one network, causing the interruption in service. I shared that
+hypothesis on the conference bridge, had the NOC analyst enter our observations into the ticket (to
+preserve a timeline of actions taken), and some discussion ensued.</p>
+
+<p>The network engineers quickly came back with “the core router is functioning normally” after looking at
+their monitoring tools. Alert readers will spot another conclusion dressed as an observation. Even more alert readers will grasp how confirmation bias would make any evidence their belief was wrong look less credible than information that confirmed the router was working normally. They were interested in ruling out their service as a problem, so quickly concluded that it was functioning normally
+after failing to find monitoring or log evidence that it was failing.</p>
+
+<p>We eventually performed a series of tests designed to disprove their hypothesis (“core router normal.”)
+By designing experiments that isolated that piece of infrastructure, we were able to show traffic getting
+dropped with no indication in the logs that anything was amiss. (more on experiment design in a future article in this series).</p>
+
+<p>In the end, the fault was a supervisor module in a core router. It failed, but did not produce the expected indications of failure that would have triggered the redundant module in the chassis to take over. Normal service was restored quickly by pulling out the active supervisor card, allowing the backup to take over.</p>
+
+<p>This action (intentionally triggering a failover) called for trust on the part of the network engineers, but the process we used to isolate the problem was straightforward, repeatable, clear, and documentd (we had NOC write all test output into the incident ticket).</p>
+
+<p>We spent about 30 minutes to get to resolution. Emotions were high because of the impact, even though this was outside working hours. Without a disciplined process, users could have felt much greater impact.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Protip: “We are aware of the issue and actively working toward resolving it. Updates will follow as we gather more information.” makes a pretty good template… <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="IT" /><category term="troubleshooting" /><summary type="html"><![CDATA[This is the first post in a short series about troubleshooting–the skill everyone in tech is expected to have, but no one gets trained to do.]]></summary></entry><entry><title type="html">Rescuing a MagLite</title><link href="https://www.robarnold.io/til/fixit/2018/01/08/rescuing-a-maglite.html" rel="alternate" type="text/html" title="Rescuing a MagLite" /><published>2018-01-08T16:00:00-06:00</published><updated>2018-01-08T16:00:00-06:00</updated><id>https://www.robarnold.io/til/fixit/2018/01/08/rescuing-a-maglite</id><content type="html" xml:base="https://www.robarnold.io/til/fixit/2018/01/08/rescuing-a-maglite.html"><![CDATA[<p>I recently went to change the battery in a flashlight that I use daily. To my surprise,
+the upper battery had exploded, leaking goo all over the interior of the flashlight, 
+cementing itself in place in the process.</p>
+
+<p><img src="/i/IMG_2504.jpg" alt="&quot;my battery blowed up&quot;" title="blowed up battery" /></p>
+
+<p>In order to return this fine flashlight to service, I had to solve the stuck battery.
+What wound up doing the trick was distilled vinegar. I shot some vinegar up the tube,
+which dissolved the hardened goo. After a few minutes I was able to retrieve the
+battery by lightly pounding the tube on a counter top. I then rinsed out the vinegar.</p>
+
+<p>I more calculated that this light was more or less toast, so the risk of getting the 
+innards wet didn’t really bother me. I tried to minimize the time the insides were wet,
+and I shook excess moisture out (vigorously). Then I let it dry before I put the batteries
+back in.</p>
+
+<p>The first attempt failed–there was some chunks of dried goo that blocked the circuit.
+Once I got those out of the flashight tube, my light was working again. The battery 
+leakage damaged the anodizing on the inside of the tube, but you won’t see that.</p>]]></content><author><name></name></author><category term="TIL" /><category term="fixit" /><summary type="html"><![CDATA[I recently went to change the battery in a flashlight that I use daily. To my surprise, the upper battery had exploded, leaking goo all over the interior of the flashlight, cementing itself in place in the process.]]></summary></entry><entry><title type="html">Transfering iPhone photos to Mac</title><link href="https://www.robarnold.io/til/2017/12/20/transfering-iphone-photos-to-mac.html" rel="alternate" type="text/html" title="Transfering iPhone photos to Mac" /><published>2017-12-20T16:00:00-06:00</published><updated>2017-12-20T16:00:00-06:00</updated><id>https://www.robarnold.io/til/2017/12/20/transfering-iphone-photos-to-mac</id><content type="html" xml:base="https://www.robarnold.io/til/2017/12/20/transfering-iphone-photos-to-mac.html"><![CDATA[<p>Today I learned that the photos app on Mac has the feature to copy and delete photos from your iPhone 
+when the phone is USB tethered. This will make my photo management workflow quite a bit simpler,
+plus clear up some space on the phone.</p>
+
+<p>Maybe this is obvious, but I was surprised and a little delighted.</p>]]></content><author><name></name></author><category term="TIL" /><summary type="html"><![CDATA[Today I learned that the photos app on Mac has the feature to copy and delete photos from your iPhone when the phone is USB tethered. This will make my photo management workflow quite a bit simpler, plus clear up some space on the phone.]]></summary></entry><entry><title type="html">Using Visual Studio Code</title><link href="https://www.robarnold.io/jekyll/workflow/blog/ide/2017/12/16/visual-studio-code.html" rel="alternate" type="text/html" title="Using Visual Studio Code" /><published>2017-12-16T16:00:00-06:00</published><updated>2017-12-16T16:00:00-06:00</updated><id>https://www.robarnold.io/jekyll/workflow/blog/ide/2017/12/16/visual-studio-code</id><content type="html" xml:base="https://www.robarnold.io/jekyll/workflow/blog/ide/2017/12/16/visual-studio-code.html"><![CDATA[<p>I have now converted to using <a href="https://code.visualstudio.com/">Visual Studio Code</a> for my editor (was using Atom). I very much
+like the git integration, and the extensible nature of the editor. I’m not an expert–I’ve probably put 
+in more hours with vi (not vim) and Ultra-Edit 32 than any other text editors/IDEs.</p>
+
+<p>VS Code seems good at staying out of my way but also making frequent workflows easy. I’m still learning
+the git features, but it’s nice to be able to stage, commit, and push without leaving the IDE. If Atom
+did that, I never found out how.</p>
+
+<p>VS Code is a free tool but it has huge value. Try it out if you are open to a new text editor/IDE. :)</p>]]></content><author><name></name></author><category term="jekyll" /><category term="workflow" /><category term="blog" /><category term="IDE" /><summary type="html"><![CDATA[I have now converted to using Visual Studio Code for my editor (was using Atom). I very much like the git integration, and the extensible nature of the editor. I’m not an expert–I’ve probably put in more hours with vi (not vim) and Ultra-Edit 32 than any other text editors/IDEs.]]></summary></entry><entry><title type="html">Using U2F</title><link href="https://www.robarnold.io/security/authentication/2017/12/11/using-u2f.html" rel="alternate" type="text/html" title="Using U2F" /><published>2017-12-11T16:00:00-06:00</published><updated>2017-12-11T16:00:00-06:00</updated><id>https://www.robarnold.io/security/authentication/2017/12/11/using-u2f</id><content type="html" xml:base="https://www.robarnold.io/security/authentication/2017/12/11/using-u2f.html"><![CDATA[<p>Conclusion: they are good–get a couple.</p>
+
+<p>I recently spent an afternoon enabling several of my online accounts to use U2F. I bought several 
+<a href="https://www.yubico.com/product/fido-u2f-security-key/">Yubikeys</a> and wanted to get some experience with using them day to day. I have previously used Duo
+and currently use RSA soft token for work. I currently use Google Authenticator for some of my personal 
+accounts. I find the U2F experience fairly unobtrusive, as long as you use Chrome, which I 
+recently switched to.</p>
+
+<p><img src="/i/yubikey.jpg" alt="&quot;Yubikey as part of pocket litter&quot;" title="spot the Yubikey" /></p>
+
+<p>One side effect of setting up and going through this: it gives you the opportunity to review and consider the
+security posture of your various online accounts. Things to think about: are my recovery emails and phone numbers 
+current? Are they the ones I’d prefer? Do I understand what I need to do to recover if I lost this account?</p>
+
+<p>Some things to consider: Buy two keys at minimum–you want a backup. There’s a minor additional inconvenience 
+(a separate download) if you don’t run Chrome, but they will still work. I haven’t gone through that process.
+You may need to consider your machine’s port configuration–USB-A is becoming scarcer, but Yubico has
+models that use USB-C. It’s just the cheapest one is USB-A only right now.</p>
+
+<p>I don’t carry a lot of keys on my ring anymore, so adding this to Every Day Carry wasn’t a problem. They have a
+nano form factor, but that seems too easily lost for me. I expect the main failure mode to be losing the key.</p>]]></content><author><name></name></author><category term="security" /><category term="authentication" /><summary type="html"><![CDATA[Conclusion: they are good–get a couple.]]></summary></entry></feed>
