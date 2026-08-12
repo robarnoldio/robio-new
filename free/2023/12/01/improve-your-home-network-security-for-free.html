@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Improve your home network security for free | Technical notes from Rob Arnold</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Improve your home network security for free" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Security is a problem that we all face. At work, there may be trained professionals leading the efforts to reduce harm and keep everything trustworthy. But what about on your home network? Couldn’t we all use a little professional help with that? Read on for steps you can take today that will cost you zero." />
+<meta property="og:description" content="Security is a problem that we all face. At work, there may be trained professionals leading the efforts to reduce harm and keep everything trustworthy. But what about on your home network? Couldn’t we all use a little professional help with that? Read on for steps you can take today that will cost you zero." />
+<link rel="canonical" href="https://www.robarnold.io/free/2023/12/01/improve-your-home-network-security-for-free.html" />
+<meta property="og:url" content="https://www.robarnold.io/free/2023/12/01/improve-your-home-network-security-for-free.html" />
+<meta property="og:site_name" content="Technical notes from Rob Arnold" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-01T13:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Improve your home network security for free" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-01T13:00:00-06:00","datePublished":"2023-12-01T13:00:00-06:00","description":"Security is a problem that we all face. At work, there may be trained professionals leading the efforts to reduce harm and keep everything trustworthy. But what about on your home network? Couldn’t we all use a little professional help with that? Read on for steps you can take today that will cost you zero.","headline":"Improve your home network security for free","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.robarnold.io/free/2023/12/01/improve-your-home-network-security-for-free.html"},"url":"https://www.robarnold.io/free/2023/12/01/improve-your-home-network-security-for-free.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.robarnold.io/feed.xml" title="Technical notes from Rob Arnold" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Technical notes from Rob Arnold</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Improve your home network security for free</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-12-01T13:00:00-06:00" itemprop="datePublished">Dec 1, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Security is a problem that we all face. At work, there may be trained professionals leading the efforts to reduce harm and keep everything trustworthy. But what about on your home network? Couldn’t we all use a little professional help with that? Read on for steps you can take today that will cost you zero.</p>
+
+<h2 id="one-service-three-levels-of-difficulty">One service, three levels of difficulty</h2>
+
+<p>Today we’ll cover how to use free services from Cloudflare to manage the risks to your home network and the devices on it. Cloudflare is amazing because they really care about creating a more secure Internet–so much so that they will let you consume some of their best services at no cost.</p>
+
+<h3 id="level-1-secure-domain-name-service-with-1111-or-2-or-3">Level 1: secure Domain Name Service with 1.1.1.1 (or .2 or .3)</h3>
+
+<p>Cloudflare operates a set of public DNS servers that are very fast and give you choices about how to deal with malicious sites and adult content sites. Their brand name for these services is 1.1.1.1, and you can read more about how it works.</p>
+
+<p>What Domain Name Service (DNS) does is quite fundamental to the Internet operating correctly. When you use a name, like www.robarnold.io, the DNS resolves that to an address (or addresses) that are registered with that name to provide some useful service, like a website or email.</p>
+
+<p>How Cloudflare works to keep your network more secure is actually really simple and powerful: any name that you ask it to resolve which is identified as serving malicious content, Cloudflare will return an address of 0.0.0.0 for that request. So you are prevented from visiting any compromised sites or malicious services, and it’s free and fast to set up.</p>
+
+<p>To use this protection, all you need to do is configure your router to use 1.1.1.2 and 1.0.0.2 as the DNS servers that it forwards requests to. In your config, this may be labeled several ways, but you’ll recognize that there will already be an IP address in the configuration, probably provided by your Internet Provider.</p>
+
+<p>Once you’re done setting that up, it’s easy to test with this address that points at a site which is safe, but categorized as malware for testing: <a href="https://malware.testcategory.com/">https://malware.testcategory.com/</a>.</p>
+
+<p>If you would also like to protect people using your network from adult content, that is also simple and free. Configure your router to use 1.1.1.3 and 1.0.0.3 as the DNS servers to get protection from malware and adult content.</p>
+
+<p>Once you’re done setting that up, it’s easy to test with this address that points at a site which is safe, but categorized as adult for testing: <a href="https://nudity.testcategory.com/">https://nudity.testcategory.com/</a>.</p>
+
+<p>You can read quite a bit more about this in Cloudflare’s <a href="https://developers.cloudflare.com/1.1.1.1/setup/">documentation</a>, but this is the quickest way to achieve malware protection for every device using your home network.</p>
+
+<p>Level 1 is amazing, and so quick to set up. But there are more free services that will help extend these protections to situations where your device is using someone else’s network. It would be great to have that protection on any network. And you can, for no cost, with the Warp client from Cloudflare.</p>
+
+<h3 id="level-2-warp-client">Level 2: Warp client</h3>
+
+<p>Besides making sure your devices don’t access malicious sites, the Warp client offers you the protection of a Virtual Private Network (VPN) as well. This VPN is not targeted at keeping you anonymous–it is there to ensure your traffic to the Internet is not modified by someone who carries that traffic (like a coffee shop network that has been compromised).</p>
+
+<p><em>As a side note, most of the traffic on the web is now encrypted, so this protection may seem redundant. But your devices are making a lot of connections all the time that aren’t web traffic, and this approach gives all that traffic a trustworthy connection to the Internet too.</em></p>
+
+<p>Installing the Warp client is easy. Go to <a href="https://1.1.1.1/">this page</a> and find the appropriate link for your devices, then install. You can read quite a bit more about how it protects you <a href="https://developers.cloudflare.com/warp-client/">in the documentation</a>, but you can also just turn it on and forget it.</p>
+
+<p>Two caveats about using this approach:</p>
+
+<ul>
+  <li>In my testing, running this client will drain your battery faster. That’s probably a decent tradeoff for most of us. If you have an older device or are currently battery-challenged, you may want to skip installing this.</li>
+  <li>A few services are not compatible. One that I ran into in testing was trying to play Apple Music through Sonos. Luckily, it’s easy to toggle the Warp client off in situations where it breaks something you need to work.</li>
+</ul>
+
+<h3 id="level-3-warp-client-with-a-free-cloudflare-account-and-teams">Level 3: Warp client with a free Cloudflare account and teams</h3>
+
+<p>Let’s say you crave control over the precise categories of sites to block. Or that you need a log of actions taken to protect your network. Or that you need to fine tune the protection of the <a href="https://blog.cloudflare.com/warp-for-desktop/">Warp client</a> based on who’s using it. You can do all those things by signing up (for free) for a Cloudflare account.</p>
+
+<p>Cloudflare generously provides almost all the features their enterprise customers pay for to everyone, for no cost. To access this, you do need to <a href="https://dash.cloudflare.com/sign-up">register as a customer</a>.</p>
+
+<p><img src="/i/cloudflarepricing.png" alt="screenshot" /></p>
+
+<p>When you do this, you can use <em>a lot more features</em> than most home users will have a need for. To help you imagine that, here’s a short list of things I do with my account:</p>
+
+<ul>
+  <li>I exempt certain application traffic from being sent through the Warp client, which helps me avoid the compatibility problems in Level 2.</li>
+  <li>I look at logs to more fully understand the policy actions Cloudflare can take on traffic.</li>
+  <li>I use a content filtering category that was developed to make network access school-friendly.</li>
+  <li>I exempt my work machine from some protections my home devices get, because it comes with some robust protections that may conflict.</li>
+</ul>
+
+<p>I (a giant nerd) particularly enjoy having enterprise-grade protection for my home network. But you may choose differently, and the good news is you have several options to pick from, all free.</p>
+
+
+  </div><a class="u-url" href="/free/2023/12/01/improve-your-home-network-security-for-free.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Technical notes from Rob Arnold</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Technical notes from Rob Arnold</li><li><a class="u-email" href="mailto:rob@robarnold.io">rob@robarnold.io</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/robarnoldio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">robarnoldio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Technical notes from Rob Arnold</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

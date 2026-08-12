@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Conclusions vs. Observations | Technical notes from Rob Arnold</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Conclusions vs. Observations" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is the first post in a short series about troubleshooting–the skill everyone in tech is expected to have, but no one gets trained to do." />
+<meta property="og:description" content="This is the first post in a short series about troubleshooting–the skill everyone in tech is expected to have, but no one gets trained to do." />
+<link rel="canonical" href="https://www.robarnold.io/it/troubleshooting/2020/01/27/conclusions-vs-observations.html" />
+<meta property="og:url" content="https://www.robarnold.io/it/troubleshooting/2020/01/27/conclusions-vs-observations.html" />
+<meta property="og:site_name" content="Technical notes from Rob Arnold" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-27T16:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Conclusions vs. Observations" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-01-27T16:00:00-06:00","datePublished":"2020-01-27T16:00:00-06:00","description":"This is the first post in a short series about troubleshooting–the skill everyone in tech is expected to have, but no one gets trained to do.","headline":"Conclusions vs. Observations","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.robarnold.io/it/troubleshooting/2020/01/27/conclusions-vs-observations.html"},"url":"https://www.robarnold.io/it/troubleshooting/2020/01/27/conclusions-vs-observations.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.robarnold.io/feed.xml" title="Technical notes from Rob Arnold" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Technical notes from Rob Arnold</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Conclusions vs. Observations</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-01-27T16:00:00-06:00" itemprop="datePublished">Jan 27, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This is the first post in a short series about troubleshooting–the skill everyone in tech
+is expected to have, but no one gets trained to do.</p>
+
+<h2 id="observations-vs-conclusions">Observations vs. Conclusions</h2>
+
+<p><strong>Bottom line up front:</strong> less experienced troubleshooters often hinder their progress toward a solution by treating conclusions like observations.</p>
+
+<p>What’s the real difference? An observation should be repeatable, and relatively resistant to differences
+due to the observer. You can and should use both while troubleshooting, but be acutely aware when you are making a conclusion.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">conclusion</th>
+      <th style="text-align: left">observation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">All the servers are down.</td>
+      <td style="text-align: left">I can’t ping host <em>foo</em> from outside the network.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">The Internet connection failed.</td>
+      <td style="text-align: left">DNS resolution fails for three hostnames I tested from my machine.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">The web server crashed.</td>
+      <td style="text-align: left">Host <em>foo</em> is not accepting connections on port 80 or 443.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You may be asking yourself right now “why does this matter? Aren’t we supposed to conclude what’s wrong in troubleshooting?”</p>
+
+<p>In the end, yes. But each of us has something known as <a href="https://youarenotsosmart.com/2010/06/23/confirmation-bias/"><strong>confirmation bias</strong></a> that affects how we gather information and use it to update our beliefs about the world. It’s a powerful effect, and no one is immune. The best any of us can do is be aware of the bias and try to act in ways that minimize the impact. This is one technique for that.</p>
+
+<p><strong>Confirmation bias</strong> is the human tendency to give information that confirms our beliefs about the world more significance than information that disconfirms those beliefs.</p>
+
+<p>Oftentimes it’s helpful to explicitly qualify your assumptions in the statement of an observation:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ok observation</th>
+      <th style="text-align: left">detailed observation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">I can’t ping the outside interface.</td>
+      <td style="text-align: left">I can’t ping the outside interface by IP from my workstation iside the firewall.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">I can’t ping the web server.</td>
+      <td style="text-align: left">I can’t ping host <em>foo</em> by hostname or by IP address.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">The engineering subnet is down.</td>
+      <td style="text-align: left">I can see packets getting forwarded to the engineering subnet, but reply packets are getting dropped.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Recommendation:</strong> if you are working an issue, or part of a team that is working an issue, be alert to
+your tendency to state conclusions as facts, adn intentionally recast your statements as observations.
+Doing so will lead to quicker issue resolution and avoid testing that retraces steps already taken.
+Resist the temptation to explain, and just diligently observe. The explanation will emerge from a set of
+well-stated observations.</p>
+
+<h2 id="a-true-story">A true story</h2>
+
+<p>This story happened to me, but I’m changing some names and details to protect privacy.</p>
+
+<p>While enjoying a nice dinner at home, my phone rang. The senior leader over applications
+got right to the point: “all the servers are down.” I asked if we had a bridge open for
+the team that would be working the issue (as specified in our incident management procedure.)
+Apparently no one had read that procedure recently, so I asked if we could hang up, and get the
+Network Operations Center (NOC) to send us all details of the “war room” bridge after they open it.</p>
+
+<p>Within a few minutes, we had the response team (still pulling their hair out) on the conference bridge,
+and NOC staff riding along to assist. The team consisted of pretty much the CIO’s direct reports: head of applications, head of infrastructure, head of communications<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, head of support services, and head
+of security (that’s me). It wasn’t too clear at first that we were not under attack, so I got two of my
+senior analysts on a separate bridge to gather data, and answer questions with facts wherever possible.</p>
+
+<p>Dear reader, you may be asking yourself right now why staff were not handling this incident. Apparently
+the genesis of the incident was a call about “all” the business apps not working, which got escalated to
+the head of apps. What testing that the app team performed is what resulted in the “all the servers are down” proclamation.</p>
+
+<p>It didn’t take long to disconfirm the conclusion–by carefully choosing vantage points in different
+networks to observe from, my team found that while multiple servers were “down” or not responding,
+at least some servers were “up.” This was the beginning of narrowing the possible solution space and
+converging on a cause for the issue.</p>
+
+<p>By observing that reachable hosts had a network in common, we formed a hypothesis that a router was not
+forwarding traffic to or from at least one network, causing the interruption in service. I shared that
+hypothesis on the conference bridge, had the NOC analyst enter our observations into the ticket (to
+preserve a timeline of actions taken), and some discussion ensued.</p>
+
+<p>The network engineers quickly came back with “the core router is functioning normally” after looking at
+their monitoring tools. Alert readers will spot another conclusion dressed as an observation. Even more alert readers will grasp how confirmation bias would make any evidence their belief was wrong look less credible than information that confirmed the router was working normally. They were interested in ruling out their service as a problem, so quickly concluded that it was functioning normally
+after failing to find monitoring or log evidence that it was failing.</p>
+
+<p>We eventually performed a series of tests designed to disprove their hypothesis (“core router normal.”)
+By designing experiments that isolated that piece of infrastructure, we were able to show traffic getting
+dropped with no indication in the logs that anything was amiss. (more on experiment design in a future article in this series).</p>
+
+<p>In the end, the fault was a supervisor module in a core router. It failed, but did not produce the expected indications of failure that would have triggered the redundant module in the chassis to take over. Normal service was restored quickly by pulling out the active supervisor card, allowing the backup to take over.</p>
+
+<p>This action (intentionally triggering a failover) called for trust on the part of the network engineers, but the process we used to isolate the problem was straightforward, repeatable, clear, and documentd (we had NOC write all test output into the incident ticket).</p>
+
+<p>We spent about 30 minutes to get to resolution. Emotions were high because of the impact, even though this was outside working hours. Without a disciplined process, users could have felt much greater impact.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Protip: “We are aware of the issue and actively working toward resolving it. Updates will follow as we gather more information.” makes a pretty good template… <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><a class="u-url" href="/it/troubleshooting/2020/01/27/conclusions-vs-observations.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Technical notes from Rob Arnold</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Technical notes from Rob Arnold</li><li><a class="u-email" href="mailto:rob@robarnold.io">rob@robarnold.io</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/robarnoldio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">robarnoldio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Technical notes from Rob Arnold</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
