@@ -3,6 +3,7 @@ layout: post
 title:  "Manage your identity theft risk"
 date:   2021-08-19 16:00:00 -0600
 categories: useful
+excerpt: Steps you can take to limit the damage a fraudster can cause
 ---
 
 ## Managing your identity theft risk: placing a credit freeze
@@ -15,7 +16,7 @@ categories: useful
 
 1. Plan where you will store and protect your credit freeze PIN and records. You could print them and store in a safe, or use an online password safe if you prefer. When you want to apply for credit in the future, you will need to access this PIN to do it, so plan ahead.
 
-2. For each of the three credit bureaus, use their online tool to request a credit freeze. Equifax and Transunion require you to create an account. I recommend you use a personal email address from a trusted provider such as Gmail or Outlook.com for this. You’ll provide your SSN and some amount of address history.
+2. For each of the three credit bureaus, use their online tool to request a credit freeze. Equifax and TransUnion require you to create an account. I recommend you use a personal email address from a trusted provider such as Gmail or Outlook.com for this. You’ll provide your SSN and some amount of address history.
 
 3. Double check that you have the necessary passwords and PINs recorded. You will need them when you want to apply for credit in the future - unfreezing the credit report will require this PIN. Mortgage applications, new credit cards, car loans, and even job applications can require a credit check, which won’t be permitted by the bureaus unless you provide your PIN.
 
